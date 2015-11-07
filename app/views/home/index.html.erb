@@ -1,0 +1,14 @@
+<h1>Homepage</h1>
+
+<ul>
+<% flash.each do |key, msg| %>
+  <%= content_tag :li, msg, id: key %>
+<% end %>
+</ul>
+
+<% if current_user %>
+  Olá, <%= current_user.name %>!
+  <%= link_to 'Sair', logout_path, id: "logout" %>
+<% else %>
+  <%= link_to 'Cadastre-se com Facebook', "/auth/facebook", id: "login" %>
+<% end %>
