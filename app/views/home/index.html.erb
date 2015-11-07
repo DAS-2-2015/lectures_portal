@@ -1,4 +1,4 @@
-<h1>Homepage</h1>
+<h1>Portal de Palestras</h1>
 
 <ul>
 <% flash.each do |key, msg| %>
@@ -10,5 +10,5 @@
   Olá, <%= current_user.name %>!
   <%= link_to 'Sair', logout_path, id: "logout" %>
 <% else %>
-  <%= link_to 'Cadastre-se com Facebook', "/auth/facebook", id: "login" %>
+  <%= link_to 'Entrar com Facebook', login_path, id: "login" %>
 <% end %>
