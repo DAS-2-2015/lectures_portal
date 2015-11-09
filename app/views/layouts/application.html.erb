@@ -8,6 +8,15 @@
 </head>
 <body>
 
+<% if current_user %>
+  Olá, <%= current_user.name %>!
+  <%= link_to 'Sair', logout_path, id: "logout" %>
+<% else %>
+  <%= link_to 'Entrar com Facebook', login_path, id: "login" %>
+<% end %>
+
+<br><br>
+
 <%= yield %>
 
 </body>

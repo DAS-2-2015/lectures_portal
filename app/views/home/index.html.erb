@@ -6,9 +6,4 @@
 <% end %>
 </ul>
 
-<% if current_user %>
-  Olá, <%= current_user.name %>!
-  <%= link_to 'Sair', logout_path, id: "logout" %>
-<% else %>
-  <%= link_to 'Entrar com Facebook', login_path, id: "login" %>
-<% end %>
+<%= link_to 'Palestras', lectures_path, id: "login" %>
