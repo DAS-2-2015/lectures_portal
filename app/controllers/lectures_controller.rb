@@ -1,5 +1,8 @@
+require 'google/api_client'
+
 class LecturesController < ApplicationController
-  before_action :set_lecture, only: [:show, :edit, :update, :destroy]
+  before_action :set_lecture, only: [:show, :edit, :update, :destroy, :enroll]
+  include LecturesHelper
 
   # GET /lectures
   # GET /lectures.json
@@ -58,6 +61,29 @@ class LecturesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to lectures_url, notice: 'Lecture was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def enroll
+    result = get_token
+    auth_client = result[1]
+    result = result[0]
+
+    if (result == false)
+      redirect_to auth_client.authorization_uri.to_s
+      return
+    end
+
+    result = create_event(auth_client)
+
+    respond_to do |format|
+      if result
+        format.html { redirect_to @lecture, notice: 'Enrollment in the lecture was successful.' }
+        format.json { render :show, status: :ok, location: @lecture }
+      else
+        format.html { redirect_to @lecture, notice: 'Error to enroll' }
+        format.json { render :show, status: :error, location: @lecture }
+      end
     end
   end
 

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :lectures
+  resources :lectures do
+    member do
+      get 'enroll'
+    end
+  end
   root :to => 'home#index'
 
   get 'auth/:provider/callback', to: 'sessions#create'

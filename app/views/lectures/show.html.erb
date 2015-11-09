@@ -25,5 +25,6 @@
 
 <%= social_share_button_tag(@lecture.title, :url => "http://globoesporte.globo.com/") %>
 
+<%= link_to 'Enroll', enroll_lecture_path(@lecture, current_user_id: current_user.id) %>
 <%= link_to 'Edit', edit_lecture_path(@lecture) %> |
 <%= link_to 'Back', lectures_path %>

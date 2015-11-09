@@ -47,5 +47,5 @@ group :development do
   gem 'spring'
 
   gem 'social-share-button'
+  gem 'google-api-client'
 end
-
