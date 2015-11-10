@@ -88,12 +88,18 @@ class LecturesController < ApplicationController
   end
 
   def inscribe
-    puts "---------------------------------"
-    puts "inscribe #{@lecture}"
-    puts "---------------------------------"
+    current_user = User.find params[:current_user_id]
+    enrollment = Enrollment.new lecture_id: @lecture.id, user_id: current_user.id
+
+    if @lecture.price == 0
+      enrollment.status = true
+    end
+
+    enrollment.save
+
     respond_to do |format|
-      format.html { redirect_to @lecture, notice: 'Enrollment in the lecture was successful.' }
-      format.json { render :show, status: :ok, location: @lecture }
+      format.html { redirect_to lectures_url, notice: 'Enrollment in the lecture was successful.' }
+      format.json { head :no_content }
     end
   end
 
@@ -105,6 +111,6 @@ class LecturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lecture_params
-      params.require(:lecture).permit(:title, :description, :lecture_type, :duration, :date)
+      params.require(:lecture).permit(:title, :description, :price, :duration, :date)
     end
 end

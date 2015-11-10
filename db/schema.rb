@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(version: 20151110122746) do
   create_table "lectures", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.string   "lecture_type"
+    t.float    "price",       default: 0.0
     t.integer  "duration"
     t.datetime "date"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "users", force: :cascade do |t|
