@@ -74,7 +74,7 @@ class LecturesController < ApplicationController
       return
     end
 
-    result = create_event(auth_client)
+    result = create_event(auth_client, @lecture)
 
     respond_to do |format|
       if result

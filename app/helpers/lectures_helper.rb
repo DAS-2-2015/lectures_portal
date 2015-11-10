@@ -23,15 +23,16 @@ module LecturesHelper
     return result
   end
 
-  def create_event(auth_client)
+  def create_event(auth_client, lecture)
     api_client = Google::APIClient.new
     cal = api_client.discovered_api('calendar', 'v3')
 
     new_event = cal.events.insert.request_schema.new
-    new_event.start = { 'date' => '2015-11-09' }
-    new_event.end = { 'date' => '2015-11-09' }
-    new_event.description = "Description here"
-    new_event.summary = "Vaii"
+    new_event.start = { 'dateTime' => lecture.date }
+    new_event.end = { 'dateTime' => lecture.date + lecture.duration * 60}
+    new_event.location = 'Location'
+    new_event.description = lecture.description
+    new_event.summary = lecture.title
     result = api_client.execute(:api_method => cal.events.insert,
       :authorization => auth_client,
       :parameters => { 'calendarId' => 'primary'},
