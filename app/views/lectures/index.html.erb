@@ -8,6 +8,7 @@
       <th>Title</th>
       <th>Description</th>
       <th>Duration</th>
+      <th>Lecture Type</th>
       <th>Date</th>
       <th colspan="3"></th>
     </tr>
@@ -19,6 +20,7 @@
         <td><%= lecture.title %></td>
         <td><%= lecture.description %></td>
         <td><%= lecture.duration %></td>
+        <td><%= lecture.lecture_type %></td>
         <td><%= lecture.date %></td>
         <td><%= link_to 'Show', lecture %></td>
         <td><%= link_to 'Edit', edit_lecture_path(lecture) %></td>
