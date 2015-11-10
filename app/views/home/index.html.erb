@@ -1,9 +1,158 @@
-<h1>Portal de Palestras</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Parallax Template - Materialize</title>
 
-<ul>
-<% flash.each do |key, msg| %>
-  <%= content_tag :li, msg, id: key %>
-<% end %>
-</ul>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="assets/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="assets/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <%= link_to raw("Portal de Palestras"), root_path, :target => "_self",class:"brand-logo", id:"logo-container" %>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
 
-<%= link_to 'Palestras', lectures_path, id: "login" %>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center red-text text-accent-4">Portal de Palestras</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">Um portal desenvolvido de alunos para alunos</h5>
+        </div>
+        <div class="row center">
+          <%= link_to raw("Comece Agora"), login_path, :target => "_self",class:"btn-large waves-effect waves-light red accent-4", id:"start-button" %>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="assets/background1.png" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Aprenda mais rápido</h5>
+
+            <p class="light">Encontre todas as palestras e video aulas do seus temas favoritos. Aprenda com os melhores profissionais do mercado. Destaque-se em meio a multidão</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Focado Na Experiência de Usuário</h5>
+
+            <p class="light">O Portal de Palestras tem como objetivo facilitar para que você encontre o mais rápdo possível as palestas que você deseja. Encontre, assista e aprenda com facilidade!</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Fácil de Usar</h5>
+
+            <p class="light">Pensamos em tudo por você. Com apenas alguns cliques encontre sua palestra e indique para seus amigos</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">Aprenda com os melhores profissionais do mercado</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="assets/background2.png" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Nos ajude a crescer</h4>
+          <p class="left-align light">Compartilhe suas palestras favoritas nas suas redes sociais favoritas, indique amigos e ganhe descontos nas compras das próximas palestras;</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">Profissionalize-se: use o conhecimento adquirido para buscar novas oportunidades</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="assets/background3.png" alt="Unsplashed background img 3"></div>
+  </div>
+
+  <footer class="page-footer red">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Biografia</h5>
+          <p class="grey-text text-lighten-4">Projeto desenvolvido por um time de estudantes do curso de Engenharia de Software da Universidade de Brasília para a diciplina de Desenvolvimento Avançado de Software</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Configurações</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Conecte-se</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Feito com <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="assets/materialize.js"></script>
+  <script src="assets/init.js"></script>
+
+  </body>
+</html>
