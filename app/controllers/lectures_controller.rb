@@ -1,7 +1,7 @@
 require 'google/api_client'
 
 class LecturesController < ApplicationController
-  before_action :set_lecture, only: [:show, :edit, :update, :destroy, :enroll]
+  before_action :set_lecture, only: [:show, :edit, :update, :destroy, :enroll, :inscribe]
   include LecturesHelper
 
   # GET /lectures
@@ -84,6 +84,16 @@ class LecturesController < ApplicationController
         format.html { redirect_to @lecture, notice: 'Error to enroll' }
         format.json { render :show, status: :error, location: @lecture }
       end
+    end
+  end
+
+  def inscribe
+    puts "---------------------------------"
+    puts "inscribe #{@lecture}"
+    puts "---------------------------------"
+    respond_to do |format|
+      format.html { redirect_to @lecture, notice: 'Enrollment in the lecture was successful.' }
+      format.json { render :show, status: :ok, location: @lecture }
     end
   end
 

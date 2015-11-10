@@ -100,6 +100,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    materialize-sass (0.97.1)
+      sass (~> 3.3)
     memoist (0.12.0)
     mime-types (2.6.2)
     mini_portile (0.6.2)
@@ -205,6 +207,7 @@ DEPENDENCIES
   google-api-client
   jbuilder (~> 2.0)
   jquery-rails
+  materialize-sass
   omniauth-facebook
   rails (= 4.2.4)
   sass-rails (~> 5.0)

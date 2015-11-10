@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :enrollments
+  has_many :lectures, through: :enrollments
+
   def self.omniauth(auth)
     # where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
