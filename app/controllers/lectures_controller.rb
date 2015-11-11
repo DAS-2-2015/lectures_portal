@@ -7,10 +7,6 @@ class LecturesController < ApplicationController
   # GET /lectures
   # GET /lectures.json
   def index
-    t = DateTime.now
-    t2 = t.in_time_zone('America/Boa_Vista').to_datetime
-    r = DateTime.parse(t.strftime("%d %b %Y %H:%M:%S #{t2.formatted_offset}"))
-    
     @lectures = Lecture.all
   end
 
@@ -85,7 +81,7 @@ class LecturesController < ApplicationController
         format.html { redirect_to @lecture, notice: 'Enrollment in the lecture was successful.' }
         format.json { render :show, status: :ok, location: @lecture }
       else
-        format.html { redirect_to @lecture, notice: 'Error to enroll' }
+        format.html { redirect_to @lecture, notice: 'Enroll failed.' }
         format.json { render :show, status: :error, location: @lecture }
       end
     end
