@@ -6,4 +6,5 @@ class Lecture < ActiveRecord::Base
   def speaker
     User.find(self.speaker_id)
   end
+
 end
