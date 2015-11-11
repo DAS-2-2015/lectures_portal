@@ -7,6 +7,10 @@ class LecturesController < ApplicationController
   # GET /lectures
   # GET /lectures.json
   def index
+    t = DateTime.now
+    t2 = t.in_time_zone('America/Boa_Vista').to_datetime
+    r = DateTime.parse(t.strftime("%d %b %Y %H:%M:%S #{t2.formatted_offset}"))
+    
     @lectures = Lecture.all
   end
 
@@ -74,10 +78,10 @@ class LecturesController < ApplicationController
       return
     end
 
-    result = create_event(auth_client, @lecture)
-
+    availability = check_availability(auth_client, @lecture)
+    
     respond_to do |format|
-      if result
+      if availability
         format.html { redirect_to @lecture, notice: 'Enrollment in the lecture was successful.' }
         format.json { render :show, status: :ok, location: @lecture }
       else
