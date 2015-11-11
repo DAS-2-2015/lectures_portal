@@ -7,4 +7,7 @@ class Lecture < ActiveRecord::Base
     User.find(self.speaker_id)
   end
 
+  def self.search(query)
+  	where("theme like ?", "%#{query}%")
+  end
 end
