@@ -31,7 +31,7 @@
         <div id="lectures" class="section scrollspy">
           <p>
             <table>
-              <% current_user.lectures do |lecture| %>
+              <% current_user.lectures.each do |lecture| %>
               <thead>
                 <tr>
                     <th data-field="title">Titulo</th>
@@ -45,7 +45,7 @@
                   <td><%= lecture.title %></td>
                   <td><%= lecture.duration %></td>
                   <td><%= lecture.date %></td>
-                  <td><%= lecture.price ? lecture.price : "Gratis"  %></td>
+                  <td><%= lecture.price == 0.0 ? "Grátis" : lecture.price %></td>
                 </tr>
               </tbody>
               <% end %>
