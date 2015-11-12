@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
   end
   root :to => 'home#index'
-
+  get '/:id', :to => 'home#show', :as => 'user_page'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'login', to: 'sessions#new'
   get 'logout', to: 'sessions#destroy'
