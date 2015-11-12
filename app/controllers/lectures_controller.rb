@@ -1,7 +1,7 @@
 require 'google/api_client'
 
 class LecturesController < ApplicationController
-  before_action :set_lecture, only: [:show, :edit, :update, :destroy, :enroll, :inscribe]
+  before_action :set_lecture, only: [:show, :edit, :update, :destroy, :enroll]
   include LecturesHelper
 
   # GET /lectures
@@ -73,7 +73,7 @@ class LecturesController < ApplicationController
       return
     end
 
-    event = create_event(auth_client, @lecture)
+    event = create_enrollment(auth_client, @lecture)
     respond_to do |format|
       if event == "Success"
         format.html { redirect_to @lecture, notice: 'Enrollment in the lecture was successful.' }
@@ -85,22 +85,6 @@ class LecturesController < ApplicationController
         format.html { redirect_to @lecture, notice: 'Error in create event.' }
         format.json { render :show, status: :error, location: @lecture }
       end
-    end
-  end
-
-  def inscribe
-    current_user = User.find params[:current_user_id]
-    enrollment = Enrollment.new lecture_id: @lecture.id, user_id: current_user.id
-
-    if @lecture.price == 0
-      enrollment.status = true
-    end
-
-    enrollment.save
-
-    respond_to do |format|
-      format.html { redirect_to lectures_url, notice: 'Enrollment in the lecture was successful.' }
-      format.json { head :no_content }
     end
   end
 

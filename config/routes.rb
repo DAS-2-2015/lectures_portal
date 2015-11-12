@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :lectures do
     member do
       get 'enroll'
-      get 'inscribe'
     end
   end
   root to: 'home#index'

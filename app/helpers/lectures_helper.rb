@@ -55,16 +55,31 @@ module LecturesHelper
     return result
   end
 
-  def create_event auth_client, lecture
+  def create_enrollment auth_client, lecture
     unless check_availability auth_client, lecture
       return "Not availability"
     end
 
-    api_client = Google::APIClient.new
-    calendar = api_client.discovered_api('calendar', 'v3')
+    current_user = User.find params[:current_user_id]
+    enrollment = Enrollment.new lecture_id: lecture.id, user_id: current_user.id
+    
+    if lecture.price == 0
+      api_client = Google::APIClient.new
+      calendar = api_client.discovered_api('calendar', 'v3')
+      result_date = transform_date auth_client, api_client, calendar, lecture
+      
+      if create_event(api_client, auth_client, calendar, lecture, result_date)
+        enrollment.status = true
+      else
+        return "Fail"
+      end
+    end
+    
+    enrollment.save
+    return "Success"
+  end
 
-    result_date = transform_date auth_client, api_client, calendar, lecture
-
+  def create_event api_client, auth_client, calendar, lecture, result_date
     new_event = calendar.events.insert.request_schema.new
     new_event.start = { 'dateTime' => result_date }
     new_event.end = { 'dateTime' => result_date + lecture.duration.minutes}
@@ -76,7 +91,5 @@ module LecturesHelper
       :parameters => { 'calendarId' => 'primary'},
       :headers => {'Content-Type' => 'application/json'},
       :body_object => new_event)
-
-    result ? "Success" : "Fail"
   end
 end
