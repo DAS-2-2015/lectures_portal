@@ -67,21 +67,22 @@ class LecturesController < ApplicationController
   def enroll
     result = get_token
     auth_client = result[1]
-    result = result[0]
 
-    if (result == false)
+    if (result[0] == false)
       redirect_to auth_client.authorization_uri.to_s
       return
     end
 
-    availability = check_availability(auth_client, @lecture)
-    
+    event = create_event(auth_client, @lecture)
     respond_to do |format|
-      if availability
+      if event == "Success"
         format.html { redirect_to @lecture, notice: 'Enrollment in the lecture was successful.' }
         format.json { render :show, status: :ok, location: @lecture }
+      elsif event == "Not availability"
+        format.html { redirect_to @lecture, notice: 'Error! Exists events in this moment.' }
+        format.json { render :show, status: :error, location: @lecture }
       else
-        format.html { redirect_to @lecture, notice: 'Enroll failed.' }
+        format.html { redirect_to @lecture, notice: 'Error in create event.' }
         format.json { render :show, status: :error, location: @lecture }
       end
     end
