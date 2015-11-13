@@ -1,14 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <title>LecturesPortal</title>
+  <title>Portal de Palestras</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="assets/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="assets/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <%= link_to raw("Portal de Palestras"), root_path, target: "_self", class: "brand-logo", id: "logo-container" %>
+      <ul class="right hide-on-med-and-down">
+        <% unless session[:user_id].nil? %>
+        <li><a href="badges.html"><i class="material-icons right"></i>
+          <div class="chip">
+            <%= image_tag("http://graph.facebook.com/#{current_user.uid}/picture?", :alt => "user_photo") %>
+            <%= current_user.name %>
+          </div>
+        </a></li>
+        <li><a href="logout">Sair</a></li>
+        <% end %>
+      </ul>
+
+      <ul class="right hide-on-med-and-down">
+        <!-- <li><a href="#">Navbar Link</a></li> -->
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <!-- <li><a href="#">Navbar Link</a></li> -->
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <%= yield %>
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="assets/materialize.js"></script>
+  <script src="assets/init.js"></script>
 
 </body>
 </html>
