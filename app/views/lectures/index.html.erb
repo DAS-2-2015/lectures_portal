@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Lectures</h1>
+<h1>Lista de Palestras</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Duration</th>
-      <th>Price</th>
-      <th>Date</th>
+      <th>Título</th>
+      <th>Descrição</th>
+      <th>Duração</th>
+      <th>Preço</th>
+      <th>Data</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,9 +22,9 @@
         <td><%= lecture.duration %></td>
         <td><%= lecture.price %></td>
         <td><%= lecture.date %></td>
-        <td><%= link_to 'Show', lecture %></td>
-        <td><%= link_to 'Edit', edit_lecture_path(lecture) %></td>
-        <td><%= link_to 'Destroy', lecture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', lecture %></td>
+        <td><%= link_to 'Editar', edit_lecture_path(lecture) %></td>
+        <td><%= link_to 'Apagar', lecture, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Lecture', new_lecture_path %>
+<%= link_to 'Criar uma palestra', new_lecture_path %>

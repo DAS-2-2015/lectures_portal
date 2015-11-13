@@ -21,13 +21,13 @@
       <%= link_to raw("Portal de Palestras"), root_path, target: "_self", class: "brand-logo", id: "logo-container" %>
       <ul class="right hide-on-med-and-down">
         <% unless session[:user_id].nil? %>
-        <li><a href="badges.html"><i class="material-icons right"></i>
+        <li><a href="home"><i class="material-icons right"></i>
           <div class="chip">
-            <%= image_tag("http://graph.facebook.com/#{current_user.uid}/picture?", :alt => "user_photo") %>
+            <%= image_tag("http://graph.facebook.com/#{current_user.uid}/picture?", alt: "user_photo") %>
             <%= current_user.name %>
           </div>
         </a></li>
-        <li><a href="logout">Sair</a></li>
+        <li><a href="/logout">Sair</a></li>
         <% end %>
       </ul>
 

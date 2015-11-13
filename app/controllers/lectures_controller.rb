@@ -31,7 +31,7 @@ class LecturesController < ApplicationController
 
     respond_to do |format|
       if @lecture.save
-        format.html { redirect_to @lecture, notice: 'Lecture was successfully created.' }
+        format.html { redirect_to @lecture, notice: 'Palestra foi criada com sucesso.' }
         format.json { render :show, status: :created, location: @lecture }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class LecturesController < ApplicationController
   def update
     respond_to do |format|
       if @lecture.update(lecture_params)
-        format.html { redirect_to @lecture, notice: 'Lecture was successfully updated.' }
+        format.html { redirect_to @lecture, notice: 'Palestra foi atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @lecture }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class LecturesController < ApplicationController
   def destroy
     @lecture.destroy
     respond_to do |format|
-      format.html { redirect_to lectures_url, notice: 'Lecture was successfully destroyed.' }
+      format.html { redirect_to lectures_url, notice: 'Palestra foi apagada com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -76,13 +76,13 @@ class LecturesController < ApplicationController
     event = create_enrollment(auth_client, @lecture)
     respond_to do |format|
       if event == "Success"
-        format.html { redirect_to @lecture, notice: 'Enrollment in the lecture was successful.' }
+        format.html { redirect_to @lecture, notice: 'Inscrição feita com sucesso.' }
         format.json { render :show, status: :ok, location: @lecture }
       elsif event == "Not availability"
-        format.html { redirect_to @lecture, notice: 'Error! Exists events in this moment.' }
+        format.html { redirect_to @lecture, notice: 'Erro! Já existe um evento nesse momento.' }
         format.json { render :show, status: :error, location: @lecture }
       else
-        format.html { redirect_to @lecture, notice: 'Error in create event.' }
+        format.html { redirect_to @lecture, notice: 'Erro ao criar evento.' }
         format.json { render :show, status: :error, location: @lecture }
       end
     end

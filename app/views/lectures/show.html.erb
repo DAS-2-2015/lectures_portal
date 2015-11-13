@@ -1,35 +1,35 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Título:</strong>
   <%= @lecture.title %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Descrição:</strong>
   <%= @lecture.description %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>Preço:</strong>
   <%= @lecture.price %>
 </p>
 
 <p>
-  <strong>Duration:</strong>
+  <strong>Duração:</strong>
   <%= @lecture.duration %>
 </p>
 
 <p>
-  <strong>Date:</strong>
+  <strong>Data:</strong>
   <%= @lecture.date %>
 </p>
 
 <!-- TODO: the servers of social networks do not find this url
 <%= request.original_url %> -->
 
-<%= social_share_button_tag(@lecture.title, :url => "http://globoesporte.globo.com/") %>
+<%= social_share_button_tag(@lecture.title, url: "http://globoesporte.globo.com/") %>
 
-<%= link_to 'Enroll', enroll_lecture_path(@lecture, current_user_id: current_user.id) %>
-<%= link_to 'Edit', edit_lecture_path(@lecture) %> |
-<%= link_to 'Back', lectures_path %>
+<%= link_to 'Inscrever-se', enroll_lecture_path(@lecture, current_user_id: current_user.id) %> |
+<%= link_to 'Editar', edit_lecture_path(@lecture) %> |
+<%= link_to 'Voltar', lectures_path %>
