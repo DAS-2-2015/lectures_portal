@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     member do
       get 'enroll'
     end
+    collection do
+      get 'authorize'
+    end
   end
   root to: 'home#index'
   get '/home', to: 'home#show', as: 'user_page'

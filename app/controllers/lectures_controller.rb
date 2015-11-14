@@ -64,12 +64,19 @@ class LecturesController < ApplicationController
     end
   end
 
-  def enroll
-    if get_token == false
+  def authorize
+    if params[:code].nil?
+      get_token
+      session[:lecture_id] = params[:format]
+      session[:current_user_id] = params[:current_user_id]
       redirect_to @auth_client.authorization_uri.to_s
-      return
+    else
+      redirect_to controller: 'lectures', action: 'enroll', id: session[:lecture_id], current_user_id: session[:current_user_id], code: params[:code]
     end
+  end
 
+  def enroll
+    get_token
     event = create_enrollment @lecture
     respond_to do |format|
       if event == "Success"

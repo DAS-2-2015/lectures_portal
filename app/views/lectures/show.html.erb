@@ -30,6 +30,6 @@
 
 <%= social_share_button_tag(@lecture.title, url: "http://globoesporte.globo.com/") %>
 
-<%= link_to 'Inscrever-se', enroll_lecture_path(@lecture, current_user_id: current_user.id) %> |
+<%= link_to 'Inscrever-se', authorize_lectures_path(@lecture, current_user_id: current_user.id) %> |
 <%= link_to 'Editar', edit_lecture_path(@lecture) %> |
 <%= link_to 'Voltar', lectures_path %>

@@ -12,7 +12,7 @@ module LecturesHelper
         scope: 'https://www.googleapis.com/auth/calendar',
         access_type: "offline",
         approval_prompt:'force',
-        redirect_uri: "http://localhost:3000/lectures/#{params[:id]}/enroll?current_user_id=#{params[:current_user_id]}"
+        redirect_uri: "http://localhost:3000/lectures/authorize/"
       )
     end
     if @api_client.nil?
@@ -28,7 +28,7 @@ module LecturesHelper
   def get_token
     init_auth_client
 
-    if params[:code] == nil
+    if params[:code].nil?
       return false
     else
       @auth_client.code = params[:code]
@@ -63,7 +63,7 @@ module LecturesHelper
       :parameters => {
         'maxResults' => 20,
         'timeMin' => result_date.to_s,
-        'timeMax' => (result_date + lecture.duration * 60).to_s,
+        'timeMax' => (result_date + lecture.duration.minutes).to_s,
         'calendarId' => 'primary'})
 
     return list.data.items.count == 0
