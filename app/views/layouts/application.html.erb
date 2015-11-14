@@ -18,7 +18,7 @@
 
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <%= link_to raw("Portal de Palestras"), root_path, target: "_self", class: "brand-logo", id: "logo-container" %>
+      <a id="logo-container" class="brand-logo" href="/">Portal de Palestras</a>
       <ul class="right hide-on-med-and-down">
         <% unless session[:user_id].nil? %>
         <li><a href="home"><i class="material-icons right"></i>
@@ -26,8 +26,11 @@
             <%= image_tag("http://graph.facebook.com/#{current_user.uid}/picture?", alt: "user_photo") %>
             <%= current_user.name %>
           </div>
-        </a></li>
-        <li><a href="/logout">Sair</a></li>
+        </a>
+       </li>
+       <li>
+          <a href="/logout" class="waves-effect waves-light red accent-4 btn">Sair</a>
+        </li>
         <% end %>
       </ul>
 
