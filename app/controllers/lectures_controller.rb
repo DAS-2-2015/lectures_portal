@@ -65,15 +65,12 @@ class LecturesController < ApplicationController
   end
 
   def enroll
-    result = get_token
-    auth_client = result[1]
-
-    if (result[0] == false)
-      redirect_to auth_client.authorization_uri.to_s
+    if get_token == false
+      redirect_to @auth_client.authorization_uri.to_s
       return
     end
 
-    event = create_enrollment(auth_client, @lecture)
+    event = create_enrollment @lecture
     respond_to do |format|
       if event == "Success"
         format.html { redirect_to @lecture, notice: 'Inscrição feita com sucesso.' }
