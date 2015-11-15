@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <%= form_for(@review) do |f| %>
+      <% if @review.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@review.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+          <% @review.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="input-field">
+        <%= f.label :points %><br>
+        <%= f.number_field :points %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Avaliar", class: 'waves-effect waves-light btn' %>
+        <%= link_to 'Voltar', user_path(id: @user), class: "waves-effect waves-light btn" %>
+      </div>
+    <% end %>

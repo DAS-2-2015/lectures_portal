@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :image
       t.string :token
       t.datetime :expires_at
+      t.belongs_to :review, index: true
 
       t.timestamps null: false
     end

@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
+<<<<<<< HEAD
   before_action :set_user, only: [:show, :notifications, :follow]
+=======
+
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+>>>>>>> Creating Lecturer evaluation
 
   # GET /users
   # GET /users.json
@@ -14,24 +19,49 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find(params[:id])
   end
 
-  def follow
-    current_user = User.find(params[:current_user_id])
+  # GET /users/new
+  def new
+    @user = User.new
+  end
+
+  # GET /users/1/edit
+  def edit
+  end
+
+  # POST /users
+  # POST /users.json
+  def create
+    @user = User.new(user_params)
 
     respond_to do |format|
-      if current_user.id != @user.id
-        Follower.create panelist_id: @user.id, user_id: current_user.id
-
-        format.html { redirect_to @user, notice: 'Você está seguindo este usuário.' }
-        format.json { render :show, status: :ok, location: @user }
+      if @user.save
+        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.json { render :show, status: :created, location: @user }
       else
-        format.html { redirect_to @user, notice: 'Você não pode seguir a si mesmo.' }
-        format.json { render :show, status: :error, location: @user }
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
 
+  # PATCH/PUT /users/1
+  # PATCH/PUT /users/1.json
+  def update
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+<<<<<<< HEAD
   def mark_notification
     notification = Notification.find params[:notification_id]
     notification.displayed = true
@@ -44,6 +74,15 @@ class UsersController < ApplicationController
         format.html { redirect_to notifications_user_url(id: current_user.id), notice: 'Erro.' }
         format.json { render :show, status: :error, location: @user }
       end
+=======
+  # DELETE /users/1
+  # DELETE /users/1.json
+  def destroy
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.json { head :no_content }
+>>>>>>> Creating Lecturer evaluation
     end
   end
 
