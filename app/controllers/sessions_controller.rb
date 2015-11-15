@@ -1,6 +1,10 @@
 class SessionsController < ApplicationController
   def new
-    redirect_to '/auth/facebook'
+    if session[:user_id].nil?
+      redirect_to '/auth/facebook'
+    else
+      redirect_to user_page_url
+    end
   end
 
   def create
