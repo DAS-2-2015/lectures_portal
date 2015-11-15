@@ -21,7 +21,7 @@
       <a id="logo-container" class="brand-logo" href="/">Portal de Palestras</a>
       <ul class="right hide-on-med-and-down">
         <% unless session[:user_id].nil? %>
-        <li><a href="home"><i class="material-icons right"></i>
+        <li><a href="/home"><i class="material-icons right"></i>
           <div class="chip">
             <%= image_tag("http://graph.facebook.com/#{current_user.uid}/picture?", alt: "user_photo") %>
             <%= current_user.name %>
