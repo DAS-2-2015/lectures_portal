@@ -2,14 +2,14 @@
   <div class="row">
     <div class="col s12 m9 l10">
       <div id="lectures" class="section scrollspy">
-        <%if current_user.lectures.empty? %>
+        <% if current_user.lectures.empty? %>
           <div class="container">
             <div class="row center">
               <h5 class="header col s12 light">Você ainda não se matriculou em nenhuma palestra, comece por aqui.</h5>
               <a href="/lectures" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Ver Palestras</a>
             </div>
           </div>
-        <%else%>
+        <% else %>
           <p>
             <h4>Minhas Palestras</h4>
             <table>
@@ -17,7 +17,6 @@
                 <thead>
                   <tr>
                     <th data-field="title">Título</th>
-                    <th data-field="duration">Duração</th>
                     <th data-field="date">Data</th>
                     <th data-field="price">Preço</th>
                   </tr>
@@ -25,17 +24,16 @@
                 <tbody>
                   <tr>
                     <td><%= lecture.title %></td>
-                    <td><%= lecture.duration %></td>
                     <td><%= lecture.date %></td>
-                    <td><%= lecture.price == 0.0 ? "Entrada Franca" : lecture.price %></td>
+                    <td><%= lecture.price == 0.0 ? "Entrada Franca" : "R$ " + lecture.price.to_s %></td>
                     <td><%= link_to 'Saiba Mais', lecture, class: "waves-effect waves-light btn" %></td>
                   </tr>
                 </tbody>
-              </table>
-            </p>
-          <% end %>
+              <% end %>
+            </table>
+          </p>
           <a href="/lectures" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Procurar Mais Palestras</a>
-        <%end%>
+        <% end %>
       </div>
       <div id="recomendations" class="section scrollspy container">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>

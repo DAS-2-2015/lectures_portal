@@ -85,7 +85,7 @@ class LecturesController < ApplicationController
         format.html { redirect_to @lecture, notice: 'Inscrição feita com sucesso.' }
         format.json { render :show, status: :ok, location: @lecture }
       elsif event == "Not availability"
-        format.html { redirect_to @lecture, notice: 'Erro! Já existe um evento nesse momento.' }
+        format.html { redirect_to @lecture, notice: 'Você já tem um evento cadastrado para este momento.' }
         format.json { render :show, status: :error, location: @lecture }
       else
         format.html { redirect_to @lecture, notice: 'Erro ao criar evento.' }
