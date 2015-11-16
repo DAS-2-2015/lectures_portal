@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :enrollments
   has_many :lectures, through: :enrollments
+  
+  has_many :notifications
 
   def self.omniauth(auth)
     # where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
