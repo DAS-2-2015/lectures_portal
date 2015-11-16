@@ -7,7 +7,7 @@
       <thead>
         <tr>
           <th>Título</th>
-          <th>Descrição</th>
+          <th>Palestrante</th>
           <th>Duração</th>
           <th>Preço</th>
           <th>Data</th>
@@ -18,13 +18,15 @@
         <% @lectures.each do |lecture| %>
           <tr>
             <td><%= lecture.title %></td>
-            <td><%= lecture.description %></td>
-            <td><%= lecture.duration %> horas</td>
+            <td><%= User.find(lecture.speaker_id).name %></td>
+            <td><%= lecture.duration %> hora(s)</td>
             <td><%= lecture.price == 0.0 ? "Entrada Franca" : "R$ " + lecture.price.to_s %></td>
             <td><%= lecture.date %></td>
             <td><%= link_to 'Ver', lecture, class: "waves-effect waves-light btn" %></td>
+            <% if lecture.speaker_id == session[:user_id] %>
             <td><%= link_to 'Editar', edit_lecture_path(lecture), class: "waves-effect waves-light light-blue accent-4 btn" %></td>
             <td><%= link_to 'Apagar', lecture, method: :delete, data: { confirm: 'Você tem certeza?' },class: "waves-effect waves-light red accent-4 btn" %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

@@ -13,6 +13,7 @@ class LecturesController < ApplicationController
   # GET /lectures/1
   # GET /lectures/1.json
   def show
+    @speaker = User.find(@lecture.speaker_id)
   end
 
   # GET /lectures/new
@@ -28,6 +29,7 @@ class LecturesController < ApplicationController
   # POST /lectures.json
   def create
     @lecture = Lecture.new(lecture_params)
+    @lecture.speaker_id = params[:lecture][:speaker_id]
 
     respond_to do |format|
       if @lecture.save
