@@ -1,15 +1,4 @@
 <p id="notice"><%= notice %></p>
-<<<<<<< HEAD
-
-<h1>Listing Users</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-    </tr>
-  </thead>
-=======
 <div class="container">
   <div class="row">
     <h4>Lista de Palestrantes</h4>
@@ -20,17 +9,11 @@
           <th>Nome do Palestrante</th>
         </tr>
       </thead>
->>>>>>> Creating Lecturer evaluation
-
   <tbody>
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
-<<<<<<< HEAD
-        <td><%= link_to 'Show', user %></td>
-=======
         <td><%= link_to 'Ver', user, class: "waves-effect waves-light btn" %></td>
->>>>>>> Creating Lecturer evaluation
       </tr>
     <% end %>
   </tbody>
