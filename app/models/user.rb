@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :followers
   has_many :users, through: :followers, source: :panelist
   has_many :reviews
+  has_many :notifications
 
   def self.omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
