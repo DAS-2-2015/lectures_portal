@@ -25,15 +25,15 @@
                   <tr>
                     <td><%= lecture.title %></td>
                     <td><%= lecture.date %></td>
-                    <td><%= lecture.price == 0.0 ? "Entrada Franca" : number_to_currency(lecture.price) %></td>
+                    <td><%= lecture.price == 0.0 ? "Entrada Franca" : "R$ " + lecture.price.to_s %></td>
                     <td><%= link_to 'Saiba Mais', lecture, class: "waves-effect waves-light btn" %></td>
                   </tr>
                 </tbody>
-              </table>
-            </p>
-          <% end %>
+              <% end %>
+            </table>
+          </p>
           <a href="/lectures" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Procurar Mais Palestras</a>
-        <%end%>
+        <% end %>
       </div>
       <div id="recomendations" class="section scrollspy container">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
