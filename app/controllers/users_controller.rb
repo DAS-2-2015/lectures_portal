@@ -3,8 +3,12 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :notifications, :follow]
 =======
 
+<<<<<<< HEAD
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 >>>>>>> Creating Lecturer evaluation
+=======
+  before_action :set_user, only: [:show, :notifications, :follow]
+>>>>>>> dispare notifications to followers #9
 
   # GET /users
   # GET /users.json

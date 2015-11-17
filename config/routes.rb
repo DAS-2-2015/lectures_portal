@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       get 'mark_notification'
     end
   end
-  
+
   root to: 'home#index'
   get '/home', to: 'home#show', as: 'user_page'
   get 'auth/:provider/callback', to: 'sessions#create'
