@@ -7,10 +7,14 @@ Rails.application.routes.draw do
       get 'authorize'
     end
   end
+
+  resources :users
+  
   root to: 'home#index'
   get '/home', to: 'home#show', as: 'user_page'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'login', to: 'sessions#new'
   get 'logout', to: 'sessions#destroy'
   get 'lectures', to: 'lectures#index'
+  get 'users', to: 'users#index'
 end
