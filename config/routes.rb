@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
+  resources :users do
+    member do
+      get 'follow'
+    end
+  end
   
   root to: 'home#index'
   get '/home', to: 'home#show', as: 'user_page'
@@ -16,5 +20,4 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   get 'logout', to: 'sessions#destroy'
   get 'lectures', to: 'lectures#index'
-  get 'users', to: 'users#index'
 end
