@@ -71,6 +71,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def mark_notification
+    notification = Notification.find params[:notification_id]
+    notification.displayed = true
+
+    respond_to do |format|
+      if notification.save
+        format.html { redirect_to notifications_user_url(id: current_user.id), notice: 'Notificação lida.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { redirect_to notifications_user_url(id: current_user.id), notice: 'Erro.' }
+        format.json { render :show, status: :error, location: @user }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
