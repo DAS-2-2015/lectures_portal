@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :notifications, :follow]
 
-
   # GET /users
   # GET /users.json
   def index
