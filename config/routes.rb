@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       get 'follow'
       get 'notifications'
     end
+    collection do
+      get 'mark_notification'
+    end
   end
   
   root to: 'home#index'
