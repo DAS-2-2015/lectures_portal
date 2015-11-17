@@ -9,13 +9,14 @@
           <th>Nome do Palestrante</th>
         </tr>
       </thead>
-      <tbody>
-        <% @users.each do |user| %>
-        <tr>
-          <td><%= user.name %></td>
-          <td><%= link_to 'Ver', user, class: "waves-effect waves-light btn" %></td>
-        </tr>
-        <% end %>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= link_to 'Ver', user, class: "waves-effect waves-light btn" %></td>
+      </tr>
+    <% end %>
   </tbody>
-</table>
-<br>
+  </table>
+  </div>
+</div>

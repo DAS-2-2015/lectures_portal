@@ -1,14 +1,6 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
   before_action :set_user, only: [:show, :notifications, :follow]
-=======
 
-<<<<<<< HEAD
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
->>>>>>> Creating Lecturer evaluation
-=======
-  before_action :set_user, only: [:show, :notifications, :follow]
->>>>>>> dispare notifications to followers #9
 
   # GET /users
   # GET /users.json
@@ -65,7 +57,6 @@ class UsersController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
   def mark_notification
     notification = Notification.find params[:notification_id]
     notification.displayed = true
@@ -78,15 +69,6 @@ class UsersController < ApplicationController
         format.html { redirect_to notifications_user_url(id: current_user.id), notice: 'Erro.' }
         format.json { render :show, status: :error, location: @user }
       end
-=======
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
->>>>>>> Creating Lecturer evaluation
     end
   end
 
