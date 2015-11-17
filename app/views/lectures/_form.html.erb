@@ -37,8 +37,12 @@
       <div class="actions">
         <%= f.submit class: 'waves-effect waves-light btn' %>
         <%= link_to 'Voltar', lectures_path, class: "waves-effect waves-light btn" %>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.application.secrets.stripe_publishable_key %>"
+        data-description="Pagamento de Palestra"
+        data-amount="<%= @lecture.price * 100 %>">
+        </script>
       </div>
     <% end %>
-
   </div>
 </div>
