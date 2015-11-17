@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get 'follow'
+      get 'notifications'
     end
   end
   

@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Notifications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mensagem</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notifications.each do |notification| %>
+      <tr>
+        <td><%= notification.message %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

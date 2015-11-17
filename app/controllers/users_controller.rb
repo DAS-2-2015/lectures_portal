@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :follow]
+  before_action :set_user, only: [:show, :notifications, :follow]
 
   # GET /users
   # GET /users.json
   def index
     @users = User.all
+  end
+
+  def notifications
+    @notifications = Notification.where(user_id: @user.id, displayed: false).all
   end
 
   # GET /users/1

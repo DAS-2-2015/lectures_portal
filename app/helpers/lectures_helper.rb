@@ -104,4 +104,12 @@ module LecturesHelper
       :headers => {'Content-Type' => 'application/json'},
       :body_object => new_event)
   end
+
+  def dispare_notifications
+    followers = Follower.where(panelist_id: current_user.id).all
+
+    followers.each do |f|
+      Notification.create(message: "Nova palestra criada por #{current_user.name}", user_id: f.id)
+    end
+  end
 end
