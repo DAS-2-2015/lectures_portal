@@ -24,7 +24,7 @@
 
 <p>
   <strong>Preço:</strong>
-  <%= number_to_currency(@lecture.price) %>
+  <%= @lecture.price == 0.0 ? "Entrada Franca" : number_to_currency(@lecture.price) %>
 </p>
 
 <p>
