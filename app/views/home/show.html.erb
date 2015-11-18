@@ -25,7 +25,7 @@
                   <tr>
                     <td><%= lecture.title %></td>
                     <td><%= lecture.date %></td>
-                    <td><%= lecture.price == 0.0 ? "Entrada Franca" : "R$ " + lecture.price.to_s %></td>
+                    <td><%= lecture.price == 0.0 ? "Entrada Franca" : number_to_currency(lecture.price) %></td>
                     <td><%= link_to 'Saiba Mais', lecture, class: "waves-effect waves-light btn" %></td>
                   </tr>
                 </tbody>
