@@ -24,12 +24,12 @@
 
 <p>
   <strong>Preço:</strong>
-  <%= @lecture.price %>
+  <%= number_to_currency(@lecture.price) %>
 </p>
 
 <p>
   <strong>Duração:</strong>
-  <%= @lecture.duration %>
+  <%= @lecture.duration.to_s  + " horas" %>
 </p>
 
 <p>

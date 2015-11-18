@@ -20,7 +20,7 @@
             <td><%= lecture.theme %></td>
             <td><%= lecture.speaker.name %></td>
             <td><%= lecture.duration %> hora(s)</td>
-            <td><%= lecture.price == 0.0 ? "Entrada Franca" : "R$ " + lecture.price.to_s %></td>
+            <td><%= lecture.price == 0.0 ? "Entrada Franca" : number_to_currency(lecture.price) %></td>
             <td><%= lecture.date %></td>
             <td><%= link_to 'Ver', lecture, class: "waves-effect waves-light btn" %></td>
             <% if lecture.speaker_id == session[:user_id] %>
