@@ -35,6 +35,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'omniauth-facebook'
 
+#Using geocoder
+gem 'geocoder'
+
 #Using google materialize sass
 gem 'materialize-sass'
 
