@@ -17,7 +17,7 @@
       <thead>
         <tr>
           <th>Título</th>
-          <th>Theme</th>
+          <th>Tema</th>
           <th>Palestrante</th>
           <th>Duração</th>
           <th>Preço</th>
@@ -43,4 +43,7 @@
       </tbody>
     </table>
     <br>
-    <% end %>
+    <%= link_to 'Criar uma palestra', new_lecture_path, class: "waves-effect waves-light btn" %>
+    <%= link_to 'Voltar', user_page_path, class: "waves-effect waves-light btn" %>
+  </div>
+</div>
