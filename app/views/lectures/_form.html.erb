@@ -19,12 +19,16 @@
         <%= f.text_field :title %>
       </div>
       <div class="input-field">
-      <%= f.label :theme %><br>
-      <%= f.text_field :theme %>
-    </div>
+        <%= f.label :theme %><br>
+        <%= f.text_field :theme %>
+      </div>
       <div class="input-field">
         <%= f.label :description %><br>
         <%= f.text_field :description %>
+      </div>
+      <div class="input-field">
+        <%= f.label :address %><br>
+        <%= f.text_field :address %>
       </div>
       <div class="input-field">
         <%= f.label :price %><br>
@@ -34,7 +38,7 @@
         <%= f.label :duration %><br>
         <%= f.number_field :duration %>
       </div>
-      <div class="field">
+      <div class="input-field">
         <%= f.label :date %><br>
         <%= f.text_field :date, as: :datepicker%>
       </div>

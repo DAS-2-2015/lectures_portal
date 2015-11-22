@@ -6,9 +6,13 @@
 </p>
 
 <p>
+<<<<<<< HEAD
   <strong>Descrição:</strong>
 
   <strong>Theme:</strong>
+=======
+  <strong>Tema:</strong>
+>>>>>>> Adding location to a lecture
   <%= @lecture.theme %>
 </p>
 
@@ -21,6 +25,13 @@
   <strong>Palestrante:</strong>
   <%= @speaker.name %>
 </p>
+
+<p>
+  <strong>Localização:</strong>
+  <%= @lecture.address %>
+</p>
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@lecture.latitude}%2C#{@lecture.longitude}" %>
 
 <p>
   <strong>Preço:</strong>
