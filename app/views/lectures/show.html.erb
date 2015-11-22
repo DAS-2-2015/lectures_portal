@@ -41,18 +41,20 @@
   <%= @lecture.date %>
 </p>
 
-<h2>Locais com palestras próximas</h2>
-<ul>
-<% for lecture in @lecture.nearbys(10) %>
-  <li><%= link_to lecture.address, lecture %> </li>
-<% end %>
-</ul>
-
 <!-- TODO: the servers of social networks do not find this url
 <%= request.original_url %> -->
 
 <%= social_share_button_tag(@lecture.title, url: "http://globoesporte.globo.com/") %>
-
-<%= link_to 'Inscrever-se', authorize_lectures_path(@lecture, current_user_id: current_user.id) %> |
+<%if @lecture.price == 0.0 %>
+  <%= link_to 'Inscrever-se', authorize_lectures_path(@lecture, current_user_id: current_user.id) %>
+<%else %>
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  data-key="<%= Rails.application.secrets.stripe_publishable_key %>"
+  data-currency= "BRL"
+  data-location= "auto"
+  data-description="Pagamento de Palestra"
+  data-amount="<%= @lecture.price * 100 %>">
+  </script>
+<%end%>|
 <%= link_to 'Editar', edit_lecture_path(@lecture) %> |
 <%= link_to 'Voltar', lectures_path %>
