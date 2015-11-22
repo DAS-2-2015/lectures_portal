@@ -29,7 +29,7 @@
 
 <p>
   <strong>Duração:</strong>
-  <%= @lecture.duration.to_s  + " horas" %>
+  <%= @lecture.duration.to_s + (@lecture.duration > 1 ? " minutos" : " minuto") %>
 </p>
 
 <p>
