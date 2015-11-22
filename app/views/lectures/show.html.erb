@@ -6,13 +6,9 @@
 </p>
 
 <p>
-<<<<<<< HEAD
   <strong>Descrição:</strong>
 
   <strong>Theme:</strong>
-=======
-  <strong>Tema:</strong>
->>>>>>> Adding location to a lecture
   <%= @lecture.theme %>
 </p>
 
@@ -27,19 +23,8 @@
 </p>
 
 <p>
-  <strong>Localização:</strong>
-  <%= @lecture.address %>
-</p>
-
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@lecture.latitude}%2C#{@lecture.longitude}" %>
-
-<p>
   <strong>Preço:</strong>
   <%= @lecture.price == 0.0 ? "Entrada Franca" : number_to_currency(@lecture.price) %>
-<<<<<<< HEAD
-
-=======
->>>>>>> View my calendar #8
 </p>
 
 <p>
@@ -51,6 +36,13 @@
   <strong>Data:</strong>
   <%= @lecture.date %>
 </p>
+
+<h2>Locais com palestras próximas</h2>
+<ul>
+<% for lecture in @lecture.nearbys(10) %>
+  <li><%= link_to lecture.address, lecture %> </li>
+<% end %>
+</ul>
 
 <!-- TODO: the servers of social networks do not find this url
 <%= request.original_url %> -->

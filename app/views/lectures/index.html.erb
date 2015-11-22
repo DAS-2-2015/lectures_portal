@@ -2,6 +2,17 @@
 <div class="container">
   <div class="row">
     <h4>Lista de Palestras</h4>
+
+    <%= form_tag(lectures_path, method: :get) do %>
+      <%= text_field_tag 'search', nil, placeholder: 'Digite o tema desejado...' %>
+      <%= submit_tag "Search" %>
+    <% end %>
+
+    <%= form_tag(lectures_path, method: :get) do %>
+      <%= text_field_tag 'searchNear', nil, placeholder: 'Digite a localidade desejada...' %>
+      <%= submit_tag "Procurar" %>
+    <% end %>
+
     <table class="highlight responsive-table">
       <thead>
         <tr>
@@ -32,7 +43,4 @@
       </tbody>
     </table>
     <br>
-    <%= form_tag(lectures_path, method: :get) do %>
-      <%= text_field_tag 'search', nil, placeholder: 'Digite o tema desejado...' %>
-      <%= submit_tag "Search" %>
     <% end %>

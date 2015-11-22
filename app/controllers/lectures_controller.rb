@@ -17,6 +17,12 @@ class LecturesController < ApplicationController
     else
       @lectures = Lecture.all
     end
+
+    if params[:searchNear]
+      @lectures = Lecture.near(params[:searchNear], 50)
+    else
+      @lectures = Lecture.all
+    end
   end
 
   # GET /lectures/1
@@ -103,6 +109,9 @@ class LecturesController < ApplicationController
         format.json { render :show, status: :error, location: @lecture }
       end
     end
+  end
+
+  def search_near
   end
 
   private
