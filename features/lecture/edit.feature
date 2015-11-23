@@ -3,10 +3,6 @@ Feature: Edit Lecture
 	As an logged user
 	You must edit your lecture
 
-	Before do
-		Lecture.create(title: "Tecnologia", description: "Descrição da palestra 1", price: 0.0, duration: 1, date: Time.now, speaker_id: 2)
-    end
-
     @omniauth_test_success
     Scenario: Editing lecture
     	Given I am an user
