@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
   <title>Portal de Palestras</title>
+  <%= javascript_include_tag "https://apis.google.com/js/plusone.js" %>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 
@@ -15,6 +16,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<%=OORConstant.facebook_app_id%>";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
@@ -46,9 +57,16 @@
 
   <%= yield %>
 
+  <div>
+    <footer>
+      <!-- TODO: the servers of social networks do not find this url
+      <%= request.original_url %> -->
+      <%= render 'layouts/social_section', :title => "Portal de Palestras", :url => "http://globoesporte.globo.com/" %>
+    </footer>
+  </div>
+  
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="assets/materialize.js"></script>
   <script src="assets/init.js"></script>
-
 </body>
 </html>
