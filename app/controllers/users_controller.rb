@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
   before_action :set_user, only: [:show, :notifications, :follow]
-=======
-  before_action :set_user, only: [:show, :follow]
->>>>>>> 4b511fe... follow panelist #9
 
   # GET /users
   # GET /users.json
@@ -46,19 +42,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
-  def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   def mark_notification
     notification = Notification.find params[:notification_id]
@@ -116,5 +99,6 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params[:user]
+      params.require(:user).permit(:provider, :uid, :name,:image,:token,:expires_at,:review_id,:email)
     end
 end

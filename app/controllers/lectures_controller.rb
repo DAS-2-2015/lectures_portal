@@ -49,7 +49,7 @@ class LecturesController < ApplicationController
     respond_to do |format|
       if @lecture.save
         dispare_notifications
-        
+
         format.html { redirect_to @lecture, notice: 'Palestra foi criada com sucesso.' }
         format.json { render :show, status: :created, location: @lecture }
       else

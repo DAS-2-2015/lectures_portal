@@ -22,10 +22,15 @@ FactoryGirl.define do
   end
 
   factory :lecture do
+    id "131546"
     title "Palestra do momento"
+    theme "huehue"
+    address "asdsada"
     description "Descrição da palestra 1"
     price "0.0"
     duration "1"
+    latitude "-23.7344773"
+    longitude "-46.5717531"
     date "2015-11-19 21:40:50"
     created_at "2015-11-19 21:40:50"
     updated_at "2015-11-19 21:40:50"
@@ -34,6 +39,8 @@ FactoryGirl.define do
 
   factory :lecture_update do
     title "Palestra do momento"
+    theme "huehue"
+    address "asdsada"
     description "Descrição da palestra 1"
     price "0.0"
     duration "2"
@@ -45,11 +52,13 @@ FactoryGirl.define do
 
   factory :invalid_lecture do
     title "Palestra do momento"
+    theme "huehue"
+    address "asdsada"
     description "Descrição da palestra 1"
     price "0.0"
     duration "1"
-    date asda
-    created_at asd
+    date "asda"
+    created_at "asd"
     updated_at "2015-11-19 21:40:50"
     speaker_id "1"
   end
