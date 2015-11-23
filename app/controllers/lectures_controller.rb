@@ -11,11 +11,7 @@ class LecturesController < ApplicationController
 
     if params[:search]
       @lectures = Lecture.search(params[:search])
-    else
-      @lectures = Lecture.all
-    end
-
-    if params[:searchNear]
+    elsif params[:searchNear]
       @lectures = Lecture.near(params[:searchNear], 50)
     else
       @lectures = Lecture.all
