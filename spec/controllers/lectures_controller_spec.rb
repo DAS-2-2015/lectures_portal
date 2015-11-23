@@ -33,7 +33,7 @@ RSpec.describe LecturesController, type: :controller do
     address: "asdsada",
     description: "Descrição da palestra 1",
     latitude: '29.55889609999999',
-    longitude: '-98.3799995',
+    longitude: '-98.  3799995',
     price: "0.0",
     duration: "1",
     date: "2015-11-19 21:40:50",

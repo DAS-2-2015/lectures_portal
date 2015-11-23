@@ -1,4 +1,15 @@
 FactoryGirl.define do
+
+  factory :notification do
+
+  end
+  factory :follower do
+
+  end
+  factory :enrollment do
+
+  end
+
   factory :user do
     provider "facebook"
     uid "883752575012371021"
@@ -36,7 +47,6 @@ FactoryGirl.define do
     updated_at "2015-11-19 21:40:50"
     speaker_id "1"
   end
-
   factory :lecture_update do
     title "Palestra do momento"
     theme "huehue"
