@@ -28,20 +28,20 @@ When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-When /^(?:|I )press "([^"]*)"$/ do |button|
+When /^(?:|I )press "([^\"]*)"$/ do |button|
   click_button(button)
 end
-When /^(?:|I )follow "([^"]*)"$/ do |link|
+When /^(?:|I )follow "([^\"]*)"$/ do |link|
   click_link(link)
 end
 
-When /^(?:|I )follows "([^"]*)"$/ do |link|
+When /^(?:|I )follows "([^\"]*)"$/ do |link|
   page.find('#link').click
 end
-When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
+When /^(?:|I )fill in "([^\"]*)" with "([^\"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
-When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
+When /^(?:|I )fill in "([^\"]*)" for "([^\"]*)"$/ do |value, field|
   fill_in(field, :with => value)
 end
 # Use this to fill in an entire form with data from a table. Example:
@@ -61,24 +61,24 @@ When /^(?:|I )fill in the following:$/ do |fields|
   end
 end
 
-When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
+When /^(?:|I )select "([^\"]*)" from "([^\"]*)"$/ do |value, field|
   select(value, :from => field)
 end
 
-When /^(?:|I )check "([^"]*)"$/ do |field|
+When /^(?:|I )check "([^\"]*)"$/ do |field|
   check(field)
 end
-When /^(?:|I )uncheck "([^"]*)"$/ do |field|
+When /^(?:|I )uncheck "([^\"]*)"$/ do |field|
   uncheck(field)
 end
 
-When /^(?:|I )choose "([^"]*)"$/ do |field|
+When /^(?:|I )choose "([^\"]*)"$/ do |field|
   choose(field)
 end
-When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, field|
+When /^(?:|I )attach the file "([^\"]*)" to "([^\"]*)"$/ do |path, field|
   attach_file(field, File.expand_path(path))
 end
-Then /^(?:|I )should see "([^"]*)"$/ do |text|
+Then /^(?:|I )should see "([^\"]*)"$/ do |text|
   if page.respond_to? :should
     page.should have_content(text)
   else
@@ -96,7 +96,7 @@ Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
   end
 end
 
-Then /^(?:|I )should not see "([^"]*)"$/ do |text|
+Then /^(?:|I )should not see "([^\"]*)"$/ do |text|
   if page.respond_to? :should
     page.should have_no_content(text)
   else
@@ -161,7 +161,7 @@ Then /^the "([^"]*)" field should have the error "([^"]*)"$/ do |field, error_me
   end
 end
 
-Then /^the "([^"]*)" field should have no error$/ do |field|
+Then /^the "([^\"]*)" field should have no error$/ do |field|
   element = find_field(field)
   classes = element.find(:xpath, '..')[:class].split(' ')
   if classes.respond_to? :should
@@ -172,7 +172,7 @@ Then /^the "([^"]*)" field should have no error$/ do |field|
     assert !classes.include?('error')
   end
 end
-Then /^the "([^"]*)" checkbox(?: within (.*))? should be checked$/ do |label, parent|
+Then /^the "([^\"]*)" checkbox(?: within (.*))? should be checked$/ do |label, parent|
   with_scope(parent) do
     field_checked = find_field(label)['checked']
     if field_checked.respond_to? :should
