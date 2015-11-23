@@ -9,10 +9,10 @@ Feature: Edit Lecture
         And I am on the root page
         And I own a lecture
         When I follow "Comece Agora"
-        And I should be on home page
+        Then I should be on home page
 
         When I follow "Ver Palestras"
-        And I should be on lectures page
+        Then I should be on lectures page
 
         When I follow "Editar"
         Then I should be on edit lecture page
@@ -20,4 +20,5 @@ Feature: Edit Lecture
 		| Título | Palestra editada |
 		| Duração | 2 |
 		And I press "Atualizar Palestra"
-		Then I should see "Palestra foi atualizada com sucesso."
+		Then I should be on show lecture page
+		And I should see "Palestra foi atualizada com sucesso."
