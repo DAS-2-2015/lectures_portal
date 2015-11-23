@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110122746) do
+ActiveRecord::Schema.define(version: 20151118165046) do
 
   create_table "enrollments", force: :cascade do |t|
     t.integer  "lecture_id"
@@ -24,16 +24,49 @@ ActiveRecord::Schema.define(version: 20151110122746) do
   add_index "enrollments", ["lecture_id"], name: "index_enrollments_on_lecture_id"
   add_index "enrollments", ["user_id"], name: "index_enrollments_on_user_id"
 
+  create_table "followers", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "panelist_id"
+  end
+
+  add_index "followers", ["panelist_id"], name: "index_followers_on_panelist_id"
+  add_index "followers", ["user_id"], name: "index_followers_on_user_id"
+
   create_table "lectures", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
     t.string   "theme"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
     t.float    "price",       default: 0.0
     t.integer  "duration"
     t.datetime "date"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "speaker_id"
   end
+
+  add_index "lectures", ["speaker_id"], name: "index_lectures_on_speaker_id"
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "message"
+    t.boolean  "displayed",  default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"
@@ -42,9 +75,13 @@ ActiveRecord::Schema.define(version: 20151110122746) do
     t.string   "image"
     t.string   "token"
     t.datetime "expires_at"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.string   "calendar_token"
+    t.integer  "review_id"
+    t.decimal  "rate",       default: 0.0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "email"
   end
+
+  add_index "users", ["review_id"], name: "index_users_on_review_id"
 
 end

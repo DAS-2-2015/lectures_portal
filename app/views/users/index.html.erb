@@ -3,6 +3,11 @@
   <div class="row">
     <h4>Lista de Palestrantes</h4>
 
+    <%= form_tag(users_path, method: :get) do %>
+      <%= text_field_tag 'search', nil, placeholder: 'Digite o nome do palestrante...' %>
+      <%= submit_tag "Procurar" %>
+    <% end %>
+
     <table class="highlight responsive-table">
       <thead>
         <tr>
@@ -21,4 +26,5 @@
   </tbody>
   </table>
   </div>
+  <%= link_to 'Voltar', user_page_path, class: "waves-effect waves-light btn" %>
 </div>
