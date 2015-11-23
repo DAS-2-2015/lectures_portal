@@ -4,7 +4,7 @@ Feature: Show Lecture
 	I should see the lectures
 
 	    @omniauth_test_success
-	    Scenario: Editing lecture
+	    Scenario: Showing lecture
 	        And I am on the root page
 	        And I own a lecture
 	        When I follow "Comece Agora"
