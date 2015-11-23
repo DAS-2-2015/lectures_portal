@@ -23,20 +23,10 @@ RSpec.describe UsersController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
-<<<<<<< HEAD
 
   let(:valid_attributes) { {} }
 
   let(:invalid_attributes) { {} }
-=======
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
-
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
->>>>>>> 239b995... Initializing test environment
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -58,8 +48,6 @@ RSpec.describe UsersController, type: :controller do
       expect(assigns(:user)).to eq(user)
     end
   end
-<<<<<<< HEAD
-=======
 
   describe "GET #new" do
     it "assigns a new user as @user" do
@@ -165,5 +153,4 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
->>>>>>> 239b995... Initializing test environment
 end
