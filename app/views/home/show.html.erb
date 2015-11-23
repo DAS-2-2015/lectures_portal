@@ -37,7 +37,25 @@
         <% end %>
       </div>      
       <div id="recomendations" class="section scrollspy container">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+      <h4>Recomendado pra você</h4>
+      <table class="highlight responsive-table">
+      <thead>
+        <tr>
+          <th>Nome do Palestrante</th>
+          <th>Nota</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.rate %></td>
+            <td><%= link_to 'Ver', user, class: "waves-effect waves-light btn" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
       </div>
       <% if @user.email.include? 'gmail' %>
       <div id="calendar" class="section scrollspy container">
