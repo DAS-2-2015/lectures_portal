@@ -14,6 +14,10 @@ module NavigationHelpers
       '/home'
     when /^lectures page$/
       '/lectures'
+    when /^show lecture page$/
+      '/lectures/1'
+    when /^create lecture page$/
+      '/lectures/new'
       
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
