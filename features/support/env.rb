@@ -35,7 +35,8 @@ Before('@omniauth_test_success') do
     :provider => 'facebook',
     :uid => '123545',
     :info => {
-      :name => 'Alessandro Caetano'
+      :name => 'Alessandro Caetano',
+      :email => 'alessandro@gmail.com'
     },
     :credentials => {
       :token => 'CAACuAWK5tJABasdAL9DlOFrppNHAZCgyyeuBGaIhsMm6J8lBNnIE...',

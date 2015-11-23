@@ -44,7 +44,6 @@
 <!-- TODO: the servers of social networks do not find this url
 <%= request.original_url %> -->
 
-<%= social_share_button_tag(@lecture.title, url: "http://globoesporte.globo.com/") %>
 <%if @lecture.price == 0.0 %>
   <%= link_to 'Inscrever-se', authorize_lectures_path(@lecture, current_user_id: current_user.id) %>
 <%else %>
