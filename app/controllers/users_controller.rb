@@ -7,7 +7,11 @@ class UsersController < ApplicationController
     if params[:search]
       @users = User.search(params[:search])
     else
-      @users = User.all
+      speakers = []
+      Lecture.find_each do |lecture|
+        speakers.push(lecture.user)
+      end
+      @users = speakers.uniq
     end
   end
 
