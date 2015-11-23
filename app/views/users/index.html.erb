@@ -7,12 +7,14 @@
       <thead>
         <tr>
           <th>Nome do Palestrante</th>
+          <th>Nota</th>
         </tr>
       </thead>
   <tbody>
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
+        <td><%= user.rate %></td>
         <td><%= link_to 'Ver', user, class: "waves-effect waves-light btn" %></td>
       </tr>
     <% end %>

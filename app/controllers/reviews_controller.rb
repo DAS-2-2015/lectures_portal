@@ -19,6 +19,12 @@ class ReviewsController < ApplicationController
     @user.reviews << @review
   end
 
+  def calculate_rate
+    @user = @review.user
+    rate = @user.reviews.average("points")
+    @user.update(rate: rate)
+  end
+
   # GET /reviews/1/edit
   def edit
   end
@@ -30,6 +36,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
+        self.calculate_rate
         format.html { redirect_to @review, notice: 'Avaliação realizada!' }
         format.json { render :show, status: :created, location: @review }
       else
@@ -44,6 +51,7 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
+         self.calculate_rate
         format.html { redirect_to @review, notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
       else
