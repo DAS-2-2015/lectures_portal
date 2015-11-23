@@ -1,57 +1,47 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>Título:</strong>
-  <%= @lecture.title %>
-</p>
-<p>
-  <strong>Descrição:</strong>
 
-  <strong>Theme:</strong>
-  <%= @lecture.theme %>
-</p>
+<table class="highlight responsive-table">
+  <thead>
+    <tr>
+      <th>Título: </th>
+      <th>Tema: </th>
+      <th>Descrição: </th>
+      <th>Palestrante: </th>
+      <th>Endereço: </th>
+      <th>Preço: </th>
+      <th>Duração: </th>
+      <th>Data: </th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= @lecture.title %></td>
+        <td><%= @lecture.theme %></td>
+        <td><%= @lecture.description %></td>
+        <td><%= @lecture.speaker.name %></td>
+        <td><%= @lecture.address %></td>
+        <td><%= @lecture.price == 0.0 ? "Entrada Franca" : number_to_currency(@lecture.price) %></td>
+        <td><%= @lecture.duration.to_s + (@lecture.duration > 1 ? " minutos" : " minuto") if @lecture.duration%></td>
+        <td><%= @lecture.date %></td>
+      </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Description:</strong>
-  <%= @lecture.description %>
-</p>
+<div class="center-align">
 
-<p>
-  <strong>Palestrante:</strong>
-  <%= @speaker.name %>
-</p>
-<p>
-  <strong>Localização:</strong>
-  <%= @lecture.address %>
-</p>
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@lecture.latitude}%2C#{@lecture.longitude}" %>
-<p>
-  <strong>Preço:</strong>
-  <%= @lecture.price == 0.0 ? "Entrada Franca" : number_to_currency(@lecture.price) %>
-</p>
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@lecture.latitude}%2C#{@lecture.longitude}" %>
 
-<p>
-  <strong>Duração:</strong>
-  <%= @lecture.duration.to_s + (@lecture.duration > 1 ? " minutos" : " minuto") %>
-</p>
-
-<p>
-  <strong>Data:</strong>
-  <%= @lecture.date %>
-</p>
-
-<!-- TODO: the servers of social networks do not find this url
-<%= request.original_url %> -->
-
-<%if @lecture.price == 0.0 %>
-  <%= link_to 'Inscrever-se', authorize_lectures_path(@lecture, current_user_id: current_user.id) %>
-<%else %>
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-  data-key="<%= Rails.application.secrets.stripe_publishable_key %>"
-  data-currency= "BRL"
-  data-location= "auto"
-  data-description="Pagamento de Palestra"
-  data-amount="<%= @lecture.price * 100 %>">
-  </script>
-<%end%>|
-<%= link_to 'Editar', edit_lecture_path(@lecture) %> |
-<%= link_to 'Voltar', lectures_path %>
+  <%if @lecture.price == 0.0 %>
+    <%= link_to 'Inscrever-se', authorize_lectures_path(@lecture, current_user_id: current_user.id), class: "waves-effect waves-light light-green btn" %>
+  <%else %>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.application.secrets.stripe_publishable_key %>"
+    data-currency= "BRL"
+    data-location= "auto"
+    data-description="Pagamento de Palestra"
+    data-amount="<%= @lecture.price * 100 %>">
+    </script>
+  <%end%>
+  <%= link_to 'Editar', edit_lecture_path(@lecture), class: "waves-effect light-blue waves-light btn" %>
+  <%= link_to 'Voltar', lectures_path , class: "waves-effect waves-light btn"%>
+</div>
