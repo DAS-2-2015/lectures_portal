@@ -38,24 +38,25 @@
       </div>      
       <div id="recomendations" class="section scrollspy container">
       <h4>Recomendado pra você</h4>
-      <table class="highlight responsive-table">
-      <thead>
-        <tr>
-          <th>Nome do Palestrante</th>
-          <th>Nota</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @users.each do |user| %>
+      <p>
+        <table class="highlight responsive-table">
+        <thead>
           <tr>
-            <td><%= user.name %></td>
-            <td><%= user.rate %></td>
-            <td><%= link_to 'Ver', user, class: "waves-effect waves-light btn" %></td>
+            <th>Nome do Palestrante</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.name %></td>
+                <td><%= link_to 'Ver', user, class: "waves-effect waves-light btn" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </p>
+      <a href="/lecturers" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Ver Palestrantes</a>
       </div>
       <% if @user.email.include? 'gmail' %>
       <div id="calendar" class="section scrollspy container">
