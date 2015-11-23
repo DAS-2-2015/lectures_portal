@@ -33,7 +33,6 @@ FactoryGirl.define do
   end
 
   factory :lecture do
-    id "131546"
     title "Palestra do momento"
     theme "huehue"
     address "asdsada"

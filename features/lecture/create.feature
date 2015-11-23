@@ -5,7 +5,7 @@ Feature: Create Lecture
 		Given I am on the root page
 	    When I follow "Comece Agora"
 	    And I should be on home page
-		
+
 		When I follow "Ver Palestras"
 		And I should be on lectures page
 		When I follow "Criar uma palestra"
@@ -20,5 +20,3 @@ Feature: Create Lecture
 		| Data | 2015-11-23 15:16:25 |
 		When I press "Criar Palestra"
 		And I should be on show lecture page
-
-	    

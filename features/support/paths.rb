@@ -18,6 +18,8 @@ module NavigationHelpers
       '/lectures/1'
     when /^create lecture page$/
       '/lectures/new'
+    when /^edit lecture page$/
+      '/lectures/1/edit'
       
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
