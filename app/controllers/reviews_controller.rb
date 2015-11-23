@@ -52,7 +52,11 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.update(review_params)
          self.calculate_rate
+<<<<<<< HEAD
         format.html { redirect_to @review, notice: 'Avaliação realizada com sucesso.' }
+=======
+        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+>>>>>>> Create lecturers recomendations
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit }
