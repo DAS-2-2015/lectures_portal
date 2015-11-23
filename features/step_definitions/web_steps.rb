@@ -217,11 +217,3 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
-
-Given(/^I am an user$/) do
-  @user = FactoryGirl.create(:user)
-end
-
-Given(/^I own a lecture$/) do
-  @wallet = FactoryGirl.create(:lecture)
-end

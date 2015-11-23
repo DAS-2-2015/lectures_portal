@@ -20,4 +20,8 @@ Feature: Edit Lecture
 
         When I follow "Editar"
         Then I should be on edit lecture page
-
+    	When I fill in the following:
+		| Título | Palestra editada |
+		| Duração | 2 |
+		And I press "Atualizar Palestra"
+		Then I should see "Palestra foi atualizada com sucesso."
