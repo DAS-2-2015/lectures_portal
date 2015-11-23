@@ -22,6 +22,8 @@ module NavigationHelpers
       '/lectures/1/edit'
     when /^speakers page$/
       '/speakers'
+    when /^show speaker page$/
+      '/users/1'
       
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
