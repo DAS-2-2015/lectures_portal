@@ -24,6 +24,8 @@ module NavigationHelpers
       '/speakers'
     when /^show speaker page$/
       '/users/1'
+    when /^show review page$/
+      '/reviews/1'
       
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
