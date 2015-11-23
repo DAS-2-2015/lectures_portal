@@ -216,3 +216,7 @@ pt-BR:
           price: Preço
           duration: Duração
           date: Data
+          theme: Tema
+          address: Endereço
+        review:
+          points: Pontos
