@@ -8,9 +8,6 @@ class LecturesController < ApplicationController
   # GET /lectures.json
   def index
     @lectures = Lecture.all
-    t = DateTime.now
-    t2 = t.in_time_zone('America/Boa_Vista').to_datetime
-    r = DateTime.parse(t.strftime("%d %b %Y %H:%M:%S #{t2.formatted_offset}"))
 
     if params[:search]
       @lectures = Lecture.search(params[:search])
