@@ -35,6 +35,10 @@ When /^(?:|I )follow "([^\"]*)"$/ do |link|
   click_link(link)
 end
 
+When /^(?:|I )follow_specific "([^\"]*)"$/ do |link|
+  click_link(link, :match => :first)
+end
+
 When /^(?:|I )follows "([^\"]*)"$/ do |link|
   page.find('#link').click
 end
