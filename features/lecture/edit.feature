@@ -1,6 +1,6 @@
 Feature: Edit Lecture
     In order to edit lecture
-    As an logged user
+    As an user
     You must edit your lecture
 
     @omniauth_test_success
