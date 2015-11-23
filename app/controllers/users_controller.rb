@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
   before_action :set_user, only: [:show, :notifications, :follow]
-=======
-  before_action :set_user, only: [:show, :follow]
->>>>>>> 4b511fe... follow panelist #9
 
   # GET /users
   # GET /users.json
