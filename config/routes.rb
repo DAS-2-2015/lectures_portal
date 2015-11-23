@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   get 'logout', to: 'sessions#destroy'
   get 'lectures', to: 'lectures#index'
-  get 'lecturers', to: 'users#index'
+  get 'speakers', to: 'users#index'
   # resources :users do
   resources :reviews
 

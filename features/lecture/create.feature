@@ -5,8 +5,7 @@ Feature: Create Lecture
 
     @omniauth_test_success
 	Scenario: Create a lecture
-		Given I am an user
-		And I am on the root page
+		Given I am on the root page
 	    When I follow "Comece Agora"
 	    And I should be on home page
 
