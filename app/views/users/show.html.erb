@@ -14,4 +14,31 @@
       </tr>
   </tbody>
 </table>
+    <table class="highlight responsive-table">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Tema</th>
+          <th>Duração</th>
+          <th>Preço</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.lectures.each do |lecture| %>
+          <tr>
+            <td><%= lecture.title %></td>
+            <td><%= lecture.theme %></td>
+            <td><%= lecture.duration.to_s + (lecture.duration > 1 ? " minutos" : " minuto") %></td>
+            <td><%= lecture.price == 0.0 ? "Entrada Franca" : number_to_currency(lecture.price) %></td>
+            <td><%= lecture.date %></td>
+            <td><%= link_to 'Ver', lecture, class: "waves-effect waves-light btn" %></td>
+            <% if lecture.speaker_id == session[:user_id] %>
+            <td><%= link_to 'Editar', edit_lecture_path(lecture), class: "waves-effect waves-light light-blue accent-4 btn" %></td>
+            <td><%= link_to 'Apagar', lecture, method: :delete, data: { confirm: 'Você tem certeza?' },class: "waves-effect waves-light red accent-4 btn" %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 <%= link_to 'Voltar', users_path, class: "waves-effect waves-light btn" %>

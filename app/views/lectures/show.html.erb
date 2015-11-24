@@ -30,7 +30,7 @@
 <div class="center-align">
 
   <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@lecture.latitude}%2C#{@lecture.longitude}" %>
-
+  <br>
   <%if @lecture.price == 0.0 %>
     <%= link_to 'Inscrever-se', authorize_lectures_path(@lecture, current_user_id: current_user.id), class: "waves-effect waves-light light-green btn" %>
   <%else %>

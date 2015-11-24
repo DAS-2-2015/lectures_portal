@@ -14,14 +14,14 @@
           <p>
             <h4>Minhas Palestras</h4>
             <table>
+              <thead>
+                <tr>
+                  <th data-field="title">Título</th>
+                  <th data-field="date">Data</th>
+                  <th data-field="price">Preço</th>
+                </tr>
+              </thead>
               <% current_user.lectures.each do |lecture| %>
-                <thead>
-                  <tr>
-                    <th data-field="title">Título</th>
-                    <th data-field="date">Data</th>
-                    <th data-field="price">Preço</th>
-                  </tr>
-                </thead>
                 <tbody>
                   <tr>
                     <td><%= lecture.title %></td>
@@ -33,7 +33,7 @@
               <% end %>
             </table>
           </p>
-          <a href="/speakers" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Procurar Mais Palestras</a>
+          <a href="/lectures" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Procurar Mais Palestras</a>
         <% end %>
       </div>
       <div id="recomendations" class="section scrollspy container">
@@ -43,6 +43,7 @@
         <thead>
           <tr>
             <th>Nome do Palestrante</th>
+            <th>Nota</th>
           </tr>
         </thead>
 
@@ -50,6 +51,7 @@
             <% @users.each do |user| %>
               <tr>
                 <td><%= user.name %></td>
+                <td><%= user.rate %></td>
                 <td><%= link_to 'Ver', user, class: "waves-effect waves-light btn" %></td>
               </tr>
             <% end %>
