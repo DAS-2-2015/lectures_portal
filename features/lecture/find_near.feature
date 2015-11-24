@@ -17,7 +17,7 @@ Feature: Find near lectures
 		| Título | Hello |
 		| Tema | Hello_theme |
 		| Descrição | hello_world |
-		| Endereço | Gama DF Brasil |
+		| Endereço | Santa Maria DF Brasil |
 		| Preço | 10 |
 		| Duração | 40 |
 		| Data | 2015-12-12 16:00:00 |
