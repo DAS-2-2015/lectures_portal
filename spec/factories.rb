@@ -13,7 +13,7 @@ FactoryGirl.define do
   factory :user do
     provider "facebook"
     uid "883752575012371021"
-    name "HueHue"
+    name "Barack Putin"
     image "http://graph.facebook.com/883752575071021/picture"
     token "CAACuAWK5tJABasdAL9DlOFrppNHAZCgyyeuBGaIhsMm6J8lBNnIE..."
     expires_at "2016-01-18 19:41:27"
