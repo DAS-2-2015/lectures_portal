@@ -14,3 +14,13 @@ Feature:
         And  I am an user
         When I fill in the following:
         | Digite o nome do palestrante... | Barack Putin |
+
+
+    @omniauth_test_success
+      Scenario: Access the Home page as a visitor
+          Given I am on the root page
+          And A lecture with speaker is registered
+          When I follow "Comece Agora"
+          Then I should be on home page
+          Then I follow "Ver"
+          Then I should be on speakers page
