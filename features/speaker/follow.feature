@@ -7,6 +7,7 @@ Feature: Follow Speaker
     Scenario: Following speaker
     	Given I am an user
         And I am on the root page
+				And A lecture with speaker is registered
         When I follow "Comece Agora"
         And I should be on home page
         When I follow "Ver Palestrantes"

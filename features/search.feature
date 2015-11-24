@@ -23,4 +23,4 @@ Feature:
           When I follow "Comece Agora"
           Then I should be on home page
           Then I follow "Ver"
-          Then I should be on speakers page
+          Then I should be on show speaker page
